@@ -5,7 +5,7 @@ let i = 0, n = 1,t=0;
 let stroka="";
 let stroka2="";
 console.log(arg);
-
+//ABC
 fs.readFile(arg[2], (err, data) => {
 	if (err){
 		console.error(err);
