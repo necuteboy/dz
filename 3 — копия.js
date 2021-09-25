@@ -59,12 +59,17 @@ fs.readFile(arg[2], (err, data) => {
 		}
 		t=0 ;
 		console.log(inText.charAt(i)," - ", n);
-		console.log(stroka);
 		i += n;
 		n  = 1;
 	}
+	fs.writeFile('output.txt', stroka, (err) => {
+		if (err){
+			console.err(err);
+			return;
+		}
+		console.log('The file has been saved!');
+	});
 	i=0
-	console.log(stroka);
 	while (i<stroka.length){
 		if (stroka[i]!="#")  {
 			stroka2+=stroka[i];
@@ -80,6 +85,3 @@ fs.readFile(arg[2], (err, data) => {
 	console.log(stroka2);
 		
 });
-/*utf-8 bom что это
-Маркер последовательности байтов
-В UTF-8 Шестнадцатеричный код этого маркера = EF BB BF*/
