@@ -67,7 +67,6 @@ fs.readFile(arg[2], (err, data) => {
 			console.err(err);
 			return;
 		}
-		console.log('The file has been saved!');
 	});
 	i=0
 	while (i<stroka.length){
@@ -82,6 +81,11 @@ fs.readFile(arg[2], (err, data) => {
 			i+=3;
 			}
 	}
-	console.log(stroka2);
+	fs.writeFile('outputt.txt', stroka2, (err) => {
+		if (err){
+			console.err(err);
+			return;
+		}
+	});
 		
 });
