@@ -22,38 +22,22 @@ fs.readFile(arg[2], (err, data) => {
 	while (i < inText.length){
 		while(inText.charAt(i) == inText.charAt(i+n))
 			n++;
-		if (n>3 && n<=255) {
-			stroka=stroka+"#"+String.fromCharCode(n)+inText.charAt(i);
+		while (n>255) {
+			n=n-255;
+			stroka+="#"+String.fromCharCode(255)+inText.charAt(i);
 		}
-		else if (n>255) {
-			let h=n
-			while (h>255) {
-				h=h-255;
-				stroka+="#"+String.fromCharCode(255)+inText.charAt(i);
-			}
-			if (h>3){
-				stroka+="#"+String.fromCharCode(h)+inText.charAt(i);
-			}
-			console.log(h);
-			if (h<=3) {
-				if (inText.charAt(i)=="#")
-					stroka+="#"+String.fromCharCode(h)+inText.charAt(i)
-				else{
-					let q=0;
-					while (q<h) {
-						stroka+=inText.charAt(i);
-						q+=1;
-						}
-				}
-			}
+		if (n>3){
+			stroka+="#"+String.fromCharCode(n)+inText.charAt(i);
 		}
-		else {
+		if (n<=3) {
 			if (inText.charAt(i)=="#")
-					stroka+="#"+String.fromCharCode(n)+inText.charAt(i)
-			else {
-				while (t<n) {
+				stroka+="#"+String.fromCharCode(h)+inText.charAt(i)
+			else{
+				let q=0;
+				while (q<h) {
 					stroka+=inText.charAt(i);
-					t+=1;
+					q+=1;
+					}
 				}
 			}
 		}
